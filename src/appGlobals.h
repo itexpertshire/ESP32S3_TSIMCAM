@@ -67,7 +67,7 @@ CAMERA_MODEL_ESP32S3_CAM_LCD
 #define DOT_MAX 50
 //#define REPORT_IDLE // core processor idle time monitoring
  
-#define APP_NAME "ESP-CAM_MJPEG" // max 15 chars
+#define APP_NAME "ESPS3_TSIMCAM" // max 15 chars
 #define APP_VER "9.0"
 
 #define FB_BUFFERS 2 // stream / record

@@ -80,3 +80,14 @@
 11:30:20.492 > [00:03:48.829 ERROR @ prefs.cpp:141] Failed to load file /data/configs.txt 
 11:30:20.502 > [00:03:48.836 WARN retrieveConfigVal] Key hostName not set 
 11:30:20.502 > [00:03:48.836 WARN retrieveConfigVal] Key AP_SSID not set 
+11:30:43.466 > [00:04:11.806 getLocalNTP] Using NTP server: pool.ntp.org
+11:30:43.466 > [00:04:11.806 WARN getLocalNTP] Not yet synced with NTP 
+11:30:43.477 > [00:04:11.818 wgetFile] Downloading /data/configs.txt from https://raw.githubusercontent.com/itexpertshire/ESP32S3_TSIMCAM/master/data/configs.txt
+11:30:50.477 > [00:04:18.818 ERROR @ setupAssist.cpp:46] Download failed, error: connection refused 
+11:30:50.486 > [00:04:18.827 loadConfig] Load config
+11:30:50.489 > [00:04:18.830 ERROR @ prefs.cpp:141] Failed to load file /data/configs.txt 
+11:30:50.495 > [00:04:18.836 WARN retrieveConfigVal] Key hostName not set 
+11:30:50.495 > [00:04:18.836 WARN retrieveConfigVal] Key AP_SSID not set 
+11:31:13.464 > [00:04:41.807 getLocalNTP] Using NTP server: pool.ntp.org
+11:31:13.464 > [00:04:41.807 WARN getLocalNTP] Not yet synced with NTP 
+11:31:13.476 > [00:04:41.819 wgetFile] Downloading /data/configs.txt from https://raw.githubusercontent.com/itexpertshire/ESP32S3_TSIMCAM/master/data/configs.txt
