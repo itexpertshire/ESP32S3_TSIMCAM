@@ -3,6 +3,9 @@
 * AVI files stored on the SD card can also be selected and streamed to a browser as MJPEG.
 *
 * s60sc 2020 - 2023
+https://github.com/s60sc/ESP32-CAM_MJPEG2SD
+
+https://github.com/itexpertshire/ESP32S3_TSIMCAM
 */
 
 #include "appGlobals.h"

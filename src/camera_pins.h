@@ -349,6 +349,43 @@
 #define HREF_GPIO_NUM     42
 #define PCLK_GPIO_NUM     5
 
+#elif defined(CAMERA_MODEL_LILY_T_SIM_CAM_V1_2)
+#define CAM_BOARD "CAMERA_MODEL_LILY_T_SIM_CAM_V1_2"
+// PIN
+#define SD_MISO_PIN      40
+#define SD_MOSI_PIN      38
+#define SD_SCLK_PIN      39
+#define SD_CS_PIN        47
+#define PCIE_PWR_PIN     48
+#define PCIE_TX_PIN      45
+#define PCIE_RX_PIN      46
+#define PCIE_LED_PIN     21
+#define MIC_IIS_WS_PIN   42
+#define MIC_IIS_SCK_PIN  41
+#define MIC_IIS_DATA_PIN 2
+#define PWDN_GPIO_NUM    -1
+#define RESET_GPIO_NUM   18
+#define XCLK_GPIO_NUM    14
+#define I2C_SDA    4
+#define I2C_SCL    5
+#define SIOD_GPIO_NUM    4
+#define SIOC_GPIO_NUM    5
+#define Y9_GPIO_NUM      15
+#define Y8_GPIO_NUM       16
+#define Y7_GPIO_NUM       17
+#define Y6_GPIO_NUM       12
+#define Y5_GPIO_NUM       10
+#define Y4_GPIO_NUM       8
+#define Y3_GPIO_NUM       9
+#define Y2_GPIO_NUM       11
+#define VSYNC_GPIO_NUM    6
+#define HREF_GPIO_NUM     7
+#define PCLK_GPIO_NUM     13
+#define BUTTON_PIN       0
+#define PWR_ON_PIN       1
+#define SERIAL_RX_PIN    44
+#define SERIAL_TX_PIN    43
+#define BAT_VOLT_PIN     3 //Analog
 #else
 #error "Camera model not selected"
 #endif

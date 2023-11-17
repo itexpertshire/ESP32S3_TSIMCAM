@@ -36,7 +36,8 @@ CAMERA_MODEL_ESP32S3_CAM_LCD
 
 // User's ESP32S3 cam board
 #elif defined(CONFIG_IDF_TARGET_ESP32S3)
-#define CAMERA_MODEL_FREENOVE_ESP32S3_CAM
+//#define CAMERA_MODEL_FREENOVE_ESP32S3_CAM
+#define CAMERA_MODEL_LILY_T_SIM_CAM_V1_2
 #endif
 
 /**************************************************************************/
@@ -83,7 +84,7 @@ CAMERA_MODEL_ESP32S3_CAM_LCD
 #define GITHUB_URL ""
 #else
 #define STORAGE SD_MMC
-#define GITHUB_URL "https://raw.githubusercontent.com/s60sc/ESP32-CAM_MJPEG2SD/master"
+#define GITHUB_URL "https://raw.githubusercontent.com/itexpertshire/ESP32S3_TSIMCAM/master"
 #endif
 #define RAMSIZE (1024 * 8) // set this to multiple of SD card sector size (512 or 1024 bytes)
 #define CHUNKSIZE (1024 * 4)
@@ -125,6 +126,10 @@ CAMERA_MODEL_ESP32S3_CAM_LCD
 #define SD_MMC_CLK 21 // SCLK
 #define SD_MMC_CMD 19 // MOSI
 #define SD_MMC_D0 22  // MISO
+#elif defined(CAMERA_MODEL_LILY_T_SIM_CAM_V1_2)
+#define SD_MMC_CLK 39 // SCLK
+#define SD_MMC_CMD 38 // MOSI
+#define SD_MMC_D0 40  // MISO
 #endif
 
 
