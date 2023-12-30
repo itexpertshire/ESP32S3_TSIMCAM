@@ -129,6 +129,7 @@ static void saveConfigVect() {
         snprintf(configLine, FILE_NAME_LEN + 100, "%s%c%.*s%c%s%c%s%c%s\n", row[0].c_str(), DELIM, strlen(row[1].c_str()), FILLSTAR, DELIM, row[2].c_str(), DELIM, row[3].c_str(), DELIM, row[4].c_str());
       else snprintf(configLine, FILE_NAME_LEN + 100, "%s%c%s%c%s%c%s%c%s\n", row[0].c_str(), DELIM, row[1].c_str(), DELIM, row[2].c_str(), DELIM, row[3].c_str(), DELIM, row[4].c_str());
       file.write((uint8_t*)configLine, strlen(configLine));
+      //LOG_INF("Saving Config %s",configLine);
     }
     LOG_ALT("Config file saved");
   }
@@ -151,6 +152,7 @@ static bool loadConfigVect() {
     // extract each config line from file
     while (true) {
       String configLineStr = file.readStringUntil('\n');
+      //LOG_INF("Config Line %s",configLineStr.c_str());
       if (!configLineStr.length()) break;
       loadVectItem(configLineStr.c_str());
     } 
@@ -255,7 +257,7 @@ void updateStatus(const char* variable, const char* _value) {
     mqttPublish(buff);
   }
 #endif
-
+  LOG_DBG("Config Update : %s - %s", variable,value);
   int intVal = atoi(value); 
   if (!strcmp(variable, "hostName")) strncpy(hostName, value, MAX_HOST_LEN-1);
   else if (!strcmp(variable, "ST_SSID")) strncpy(ST_SSID, value, MAX_HOST_LEN-1);
@@ -352,7 +354,7 @@ void updateStatus(const char* variable, const char* _value) {
     saveConfigVect();
   } else {
     res = updateAppStatus(variable, value);
-//    if (!res) LOG_DBG("Unrecognised config: %s", variable);
+    //if (!res) LOG_DBG("Unrecognised config: %s", variable);
   }
   if (res) updateConfigVect(variable, value);  
 }

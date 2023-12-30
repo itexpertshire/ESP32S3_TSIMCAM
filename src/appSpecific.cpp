@@ -39,6 +39,7 @@ bool updateAppStatus(const char* variable, const char* value) {
     LOG_INF("%s motion detection", useMotion ? "Enabling" : "Disabling");
   }
   else if (!strcmp(variable, "timeLapseOn")) timeLapseOn = intVal;
+  else if (!strcmp(variable, "nightphotoOn")) nightphotoOn = intVal;
   else if (!strcmp(variable, "tlSecsBetweenFrames")) tlSecsBetweenFrames = intVal;
   else if (!strcmp(variable, "tlDurationMins")) tlDurationMins = intVal;
   else if (!strcmp(variable, "tlPlaybackFPS")) tlPlaybackFPS = intVal;  

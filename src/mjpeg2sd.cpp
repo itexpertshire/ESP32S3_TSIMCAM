@@ -73,6 +73,7 @@ static volatile bool isPlaying = false; // controls playback on app
 bool isCapturing = false;
 bool stopPlayback = false; // controls if playback allowed
 bool timeLapseOn = false;
+bool nightphotoOn = false;
 
 /**************** timers & ISRs ************************/
 
@@ -341,6 +342,34 @@ static bool closeAvi() {
   }
 }
 
+static boolean processNightPhoto() {
+  //LOG_INF("Processing NightPhoto");
+  // 1st Frame
+  camera_fb_t* fb = nullptr; //clearing up memory
+  
+  fb = esp_camera_fb_get();
+  int retries=0;
+  if(!fb) {
+  
+  while(1)
+        {
+          Serial.println("Not having image yet, waiting a bit");
+          
+          delay(500);
+          fb = esp_camera_fb_get();
+          if(fb)break;
+
+          retries++;
+          if(retries>6)break;
+        }
+  }
+  if(fb) {
+           timeLapse(fb);
+           esp_camera_fb_return(fb);
+           }
+  return true;
+}
+
 static boolean processFrame() {
   // get camera frame
   static bool wasCapturing = false;
@@ -425,7 +454,8 @@ static void captureTask(void* parameter) {
     ulNotifiedValue = ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
     if (ulNotifiedValue > FB_BUFFERS) ulNotifiedValue = FB_BUFFERS; // prevent too big queue if FPS excessive
     // may be more than one isr outstanding if the task delayed by SD write or jpeg decode
-    while (ulNotifiedValue-- > 0) processFrame();
+    while (ulNotifiedValue-- > 0) {if (nightphotoOn) processNightPhoto();
+                                  else processFrame(); }
   }
   vTaskDelete(NULL);
 }

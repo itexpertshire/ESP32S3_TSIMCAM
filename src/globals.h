@@ -155,6 +155,7 @@ void wsAsyncSend(const char* wsData);
 void startMqttClient();  
 void stopMqttClient();  
 void mqttPublish(const char* payload);
+void syncDataFiles();
 
 /******************** Global utility declarations *******************/
 

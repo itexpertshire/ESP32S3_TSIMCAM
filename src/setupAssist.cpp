@@ -57,6 +57,19 @@ static bool wgetFile(const char* githubURL, const char* filePath, bool restart =
   return res;
 }
 
+void syncDataFiles() {
+  // Sync HTML and JS File any missing data files
+  bool res = false;
+  if (strlen(GITHUB_URL)) {
+    fp.remove(COMMON_JS_PATH);
+    fp.remove(INDEX_PAGE_PATH);
+    res = wgetFile("https://raw.githubusercontent.com/itexpertshire/ESP32S3_TSIMCAM/ver0.1/src", COMMON_JS_PATH);     
+    //if (res) LOG_INF("Download JS File Status: %s", res);
+    res = wgetFile("https://raw.githubusercontent.com/itexpertshire/ESP32S3_TSIMCAM/ver0.1/src", INDEX_PAGE_PATH); 
+    //if (res) LOG_INF("Download Index file Status: %s", res);
+  }
+}
+
 bool checkDataFiles() {
   // Download any missing data files
   if (!fp.exists(DATA_DIR)) fp.mkdir(DATA_DIR);

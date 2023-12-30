@@ -63,7 +63,7 @@ CAMERA_MODEL_ESP32S3_CAM_LCD
 #define STATIC_IP_OCTAL "132" // dev only
 #define CHECK_MEM false // leave as false
 #define FLUSH_DELAY 0 // for debugging crashes
-#define DBG_ON false // esp debug output
+#define DBG_ON true // esp debug output
 #define DOT_MAX 50
 //#define REPORT_IDLE // core processor idle time monitoring
  
@@ -84,7 +84,7 @@ CAMERA_MODEL_ESP32S3_CAM_LCD
 #define GITHUB_URL ""
 #else
 #define STORAGE SD_MMC
-#define GITHUB_URL "https://raw.githubusercontent.com/itexpertshire/ESP32S3_TSIMCAM/master"
+#define GITHUB_URL "https://raw.githubusercontent.com/itexpertshire/ESP32S3_TSIMCAM/master/src"
 #endif
 #define RAMSIZE (1024 * 8) // set this to multiple of SD card sector size (512 or 1024 bytes)
 #define CHUNKSIZE (1024 * 4)
@@ -231,6 +231,7 @@ extern bool nightTime;
 extern bool stopPlayback;
 extern bool useMotion; // whether to use camera for motion detection (with motionDetect.cpp)  
 extern bool timeLapseOn; // enable time lapse recording
+extern bool nightphotoOn; // enable Night Photography
 extern int maxFrames;
 extern char inFileName[];
 extern uint8_t xclkMhz;
